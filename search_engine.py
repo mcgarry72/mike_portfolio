@@ -25,8 +25,7 @@
 # Your job is to make it work. Your functions should match my code
 # and my code should execute without error.
 
-# added a new importt
-import pandas as pd
+
 
 def search(index, search_string):
 
