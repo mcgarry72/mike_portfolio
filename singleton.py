@@ -22,7 +22,6 @@ elif len(array_list) == 1:
     print(f"Singleton is {array_list[0]}")
     found_a_singleton = True
 else:
-    array_list.sort()
     for x in array_list:
         if array_list.count(x) == 1:
             print(f"{x} is a singleton!")
