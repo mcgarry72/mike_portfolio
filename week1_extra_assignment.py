@@ -6,6 +6,8 @@ print(verse.index("and"))
 
 print(verse[verse.index("and"):verse.rindex("and")])
 
+print(verse[13].isupper())
+
 print(verse.rindex("and"))
 print(verse.count("you"))
 print(verse.count("mike"))
