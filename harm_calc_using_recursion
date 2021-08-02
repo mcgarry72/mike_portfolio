@@ -1,0 +1,17 @@
+# program which uses recrsion to calculate the harmonic sum
+
+def calc_harm_sum(n):
+    if n == 1:
+        return(1)
+    else:
+        return(1 / n + calc_harm_sum(n-1))
+
+user_input = input("Please enter a positive integer ")
+try:
+    calc_int = int(user_input)
+    if calc_int < 1:
+        print("invalid entry - input must be greater than zero")
+    else:
+        print(calc_harm_sum(calc_int)
+except:
+    print("Invalid entry - input must be a number grearer than zero")
