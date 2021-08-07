@@ -2,6 +2,8 @@
 # classic: given a chessboard of size n, and a starting position of x, y
 # can the knight move around the chessboard and touch each square once
 
+import numpy as np 
+
 def get_dimension_input():
     cont_processing = True
     have_received_input = False
@@ -39,17 +41,28 @@ def get_knight_starting(dim):
             else:
                 knight_row = int(knight_row_str)
                 knight_col = int(knight_col_str)
-                if knight_row < 1 or knight_col < 1:
-                    print("starting positions must be at least one")
-                elif knight_row > dim or knight_col > dim:
-                    print("starting positions must be less than or equal to the size of the chessboard")
+                if knight_row < 0 or knight_col < 0:
+                    print("starting positions must be positive.  remember, we start counting at zero")
+                elif knight_row >= dim or knight_col >= dim:
+                    print("starting positions must be less than the size of the chessboard")
                 else:
                     have_received_input = True    
     return cont_processing, knight_row, knight_col
+
+def try_knight_tour(x, y, z):
+    my_array = np.zeros((x, x))
+    my_array[y, z] = 1
+    print(my_array)
+    if 0 in my_array:
+        return False
+    else:
+        return True
 
 continue_proc, chessboard_dim = get_dimension_input()
 
 if continue_proc:
     continue_proc, start_row, start_col = get_knight_starting(chessboard_dim)
-print(continue_proc, chessboard_dim, start_row, start_col)
-print("I am done")
+
+if continue_proc:
+    result = try_knight_tour(chessboard_dim, start_row, start_col)
+    print(result)
